@@ -1,7 +1,6 @@
 package br.lionani07.coursejpa.resources;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,9 +26,8 @@ public class UserResource {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<User> findById(@PathVariable Long id){
-		System.out.println(id);
-		Optional<User> user = service.findById(id);
-		return ResponseEntity.ok().body(user.get());
+	public ResponseEntity<User> findById(@PathVariable Long id){		
+		User user = service.findById(id);
+		return ResponseEntity.ok().body(user);
 	}
 }
